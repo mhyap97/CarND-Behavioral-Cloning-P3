@@ -1,8 +1,8 @@
-#**Behavioral Cloning** 
+# **Behavioral Cloning** 
 
-##Writeup Template
+## Writeup Template
 
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
+### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
@@ -16,6 +16,7 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 [Track 1 video on Youtube](https://youtu.be/dTyNoMT9vRE)
+
 [Track 2 video on Youtube](https://youtu.be/CSO_ZDmWWk4)
 
 [//]: # (Image References)
@@ -29,12 +30,12 @@ The goals / steps of this project are the following:
 [image7]: ./examples/figure8.jpg "Flipped Image"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Files Submitted & Code Quality
+### Files Submitted & Code Quality
 
-####1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 * model.py containing the script to create and train the model
@@ -42,19 +43,19 @@ My project includes the following files:
 * model.h5 containing a trained convolution neural network 
 * writeup_report.md or writeup_report.pdf summarizing the results
 
-####2. Submission includes functional code
+#### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
 python drive.py model.h5
 ```
 
-####3. Submission code is usable and readable
+#### 3. Submission code is usable and readable
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+#### 1. An appropriate model architecture has been employed
 
 I decided to use [nVidia Autonomous Car Group model](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) with 5x5 & 3x3 convolution neural network and depths between 24 and 64 (model.py lines 110-119) 
 
@@ -98,36 +99,36 @@ Trainable params: 981,819
 Non-trainable params: 0
 ```
 
-####2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model
 
 I did not use regularization techniques like Dropout or Max pooling for my model. Instead, I used low epochs approach which is 3 epochs. Then, I split my sample data into training and validation data. Using 80% as training and 20% as validation (model.py line 130-132).
 
-####3. Model parameter tuning
+#### 3. Model parameter tuning
 
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 144).
 
-####4. Appropriate training data
+#### 4. Appropriate training data
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
 
 For details about how I created the training data, see the next section. 
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+#### 1. Solution Design Approach
 At first, I tried with a same model of nVidia Autonomous Car Group but applied regularization techniques like Dropout and using elu as activation, with a 6 training epochs.
 But then I found out another approach to reduce the training duration with almost the same result when trying the autonomous mode in the simulator, which is the final model I'm using now.
 I removed the Dropout layers and with a lower epochs, the training duration reduced.
 If I increase the epochs to more than 3 epochs, it seems to be overfitting, the validation loss will start to increase after 3 epochs.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 
 The final model architecture (model.py lines 110-119) 
 Here is a visualization of the architecture:
 
 ![alt text][image1]
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I first recorded 1 lap on both track one and two using center lane driving. Here is an example image of center lane driving:
 
