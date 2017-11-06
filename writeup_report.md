@@ -124,7 +124,7 @@ If I increase the epochs to more than 3 epochs, it seems to be overfitting, the 
 #### 2. Final Model Architecture
 
 The final model architecture (model.py lines 110-119) 
-Here is a visualization of the architecture:
+Here is a visualization of the architecture ( Picture from [nVidia Autonomous Car Group model](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) ):
 
 ![alt text][image1]
 
